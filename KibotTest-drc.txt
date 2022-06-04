@@ -1,0 +1,10 @@
+** Drc report for /home/floride/Documents/Work/Kicad/KibotTest/KibotTest.kicad_pcb **
+** Created on 2022-06-04 17:41:45 **
+
+** Found 0 DRC violations **
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **
