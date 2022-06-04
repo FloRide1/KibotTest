@@ -57,7 +57,7 @@ Defined tracks:
 
 Used tracks:
 
-- 0.25 mm (10 mils) (6) defined: no
+- 0.25 mm (10 mils) (7) defined: no
 
 Defined vias:
 
@@ -76,6 +76,10 @@ Drill tools (including vias and computing adjusts and rounding):
 
 - 1.1 mm (43 mils) (2)
 
+
+# Schematic
+
+![Export Schematic image](../../View/schematics/KibotTest-schematic.svg){ width=16.5cm height=11.7cm }
 
 
 

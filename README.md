@@ -6,15 +6,18 @@ This repo is a test about a Kicad Plugins named "[KiBot](https://github.com/INTI
 
 ## Images:
 ### Schematic:
+![](View/schematics/KibotTest-schematic.svg)
 
 ### PCB:
 | Front | Bottom |
 :------:|:-------:
-|[](View/jpg/KibotTest-top.jpg)| [](View/jpg/KibotTest-bottom.jpg)|
+|![](View/pcb/KibotTest-top.jpg)| ![](View/pcb/KibotTest-bottom.jpg)|
 ### 3D:
-| Front | Tilted |
+| Front | Bottom |
 :------:|:-------:
-|[](View/3D/KibotTest-3D_top.png)| [](View/3D/KibotTest-3D_top-2.png)|
+|![](View/3D/KibotTest-3D_top.png)| ![](View/3D/KibotTest-3D_bottom.png)|
+| Tilted 1 | Tilted 2 |
+| ![](View/3D/KibotTest-tilted-1.png) | ![](View/3D/KibotTest-tilted-2.png) |
 
 ## Others:
 - [Interactive BOM](Export/ibom/KibotTest-ibom.html)
