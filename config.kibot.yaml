@@ -100,7 +100,7 @@ outputs:
     options:
       compression: 'auto'
       files:
-        - source: './Gerber/**'
+        - from_output: './Gerber/**'
       format: 'ZIP'
       move_files: false
 

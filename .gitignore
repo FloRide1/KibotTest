@@ -29,7 +29,9 @@ fp-info-cache
 *.csv
 
 # Kibot
-Export
-Gerbers
-View
-Datasheets
+Export/
+Gerbers/
+View/
+Datasheets/
+KibotTest-drc.txt
+KibotTest-erc.txt
