@@ -93,6 +93,18 @@ outputs:
       - F.CrtYd
       - Dwgs.User
 
+  - name: 'gerber_plot_export'
+    comment: 'Create Gerber plot files'
+    type: 'gerber'
+    dir: 'Gerber/gerber_export'
+    extends: 'gerber_plot'
+
+  - name: 'gerber_plot_export'
+    comment: 'Create Gerber plot files'
+    type: 'gerber'
+    dir: 'Gerber/gerber_export'
+    extends: 'gerber_plot'
+
   - name: 'Compress'
     comment: 'Compress Gerber files in a single archive'
     type: 'compress'
@@ -100,7 +112,7 @@ outputs:
     options:
       compression: 'auto'
       files:
-        - from_output: './Gerber/**'
+        - from_output: './Gerber/'
       format: 'ZIP'
       move_files: false
 
