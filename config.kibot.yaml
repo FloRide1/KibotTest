@@ -88,6 +88,47 @@ outputs:
       - F.CrtYd
       - Dwgs.User
 
+  - name: "gerber_drill_zip"
+    comment: "Create Gerber drills files"
+    type: "gerb_drill"
+    dir: "Gerber/export_zip"
+    options:
+      map:
+        output: "%f-%i%I%v.%x"
+        type: "pdf"
+      output: "%f-%i%I%v.%x"
+      use_aux_axis_as_origin: false
+
+  - name: "gerber_plot_zip"
+    comment: "Create Gerber plot files"
+    type: "gerber"
+    dir: "Gerber/export_zip"
+    options:
+      create_gerber_job_file: true
+      exclude_edge_layer: true
+      exclude_pads_from_silkscreen: false
+      force_plot_invisible_refs_vals: false
+      gerber_job_file: "%f-%i%I%v.%x"
+      gerber_precision: 4.6
+      line_width: 0.1
+      output: "%f-%i%I%v.%x"
+      plot_footprint_refs: true
+      plot_footprint_values: true
+      plot_sheet_reference: false
+      subtract_mask_from_silk: false
+    layers: # Important layers: (all)
+      - copper
+      - Edge.Cuts
+      - F.SilkS
+      - B.SilkS
+      - F.Mask
+      - B.Mask
+      - F.Paste
+      - F.Adhes
+      - F.Fab
+      - F.CrtYd
+      - Dwgs.User
+
   - name: "Compress"
     comment: "Compress Gerber files in a single archive"
     type: "compress"
@@ -95,10 +136,9 @@ outputs:
     options:
       compression: "auto"
       files:
-        - source: "./Gerber/**"
-        - filter: ".*[.](?!zip).*"
+        - from_output: "./Gerber/export_zip"
       format: "ZIP"
-      move_files: false
+      move_files: true
 
   - name: "bom"
     comment: "Generate the bom in Export"
