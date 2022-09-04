@@ -3,18 +3,18 @@
 on:
   push:
     paths:
-      - '*.sch'
-      - '*.kicad_pcb'
-      - '*.kibot.yaml'
-      - 'Makefile'
-      - '.github/workflows/main.yaml'
+      - "*.sch"
+      - "*.kicad_pcb"
+      - "*.kibot.yaml"
+      - "Makefile"
+      - ".github/workflows/main.yaml"
   pull_request:
     paths:
-      - '*.sch'
-      - '*.kicad_pcb'
-      - '*.kibot.yaml'
-      - 'Makefile'
-      - '.github/workflows/main.yaml'
+      - "*.sch"
+      - "*.kicad_pcb"
+      - "*.kibot.yaml"
+      - "Makefile"
+      - ".github/workflows/main.yaml"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,43 +22,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Run ERC
-      uses: INTI-CMNB/KiBot@v2_k6
-      with:
-        kicad: 5
-        dir: Export
-        skip: run_drc
-        targets: __NONE__
+      - name: Run ERC
+        uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          kicad: 5
+          dir: Export
+          skip: run_drc
+          targets: __NONE__
 
-    - name: Retrieve results
-      uses: actions/upload-artifact@v2
-      with:
-        name: ERC_Output
-        path: Export
-
+      - name: Retrieve results
+        uses: actions/upload-artifact@v2
+        with:
+          name: ERC_Output
+          path: Export
 
   DRC:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Run DRC
-      uses: INTI-CMNB/KiBot@v2_k6
-      with:
-        kicad: 5
-        dir: Export
-        skip: run_erc
-        targets: __NONE__
+      - name: Run DRC
+        uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          kicad: 5
+          dir: Export
+          skip: run_erc
+          targets: __NONE__
 
-    - name: Retrieve results
-      uses: actions/upload-artifact@v1
-      with:
-        name: DRC_Output
-        path: Export
-
+      - name: Retrieve results
+        uses: actions/upload-artifact@v1
+        with:
+          name: DRC_Output
+          path: Export
 
   default:
     name: "Main"
@@ -66,26 +64,27 @@ jobs:
     needs: [ERC, DRC]
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - uses: INTI-CMNB/KiBot@v2_k6
-      with:
-        config: config.kibot.yaml
-          # skip: all
-          #
-    - name: Commits files
-      run: |
-        git config --local user.name  ${{ github.actor }}
-        git add -f ./Export ./Datasheets ./Gerber ./View
-        git commit -m "[CI] Auto-release exports files"
+      - uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          config:
+            config.kibot.yaml
+            # skip: all
+            #
+      - name: Commits files
+        run: |
+          git config --local user.name  ${{ github.actor }}
+          git add -f ./Export ./Datasheets ./Gerber ./View
+          git commit -m "[CI] Auto-release exports files"
 
-    - name: Push changes  # push the output folder to your repo
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
     #- name: upload results
-      #uses: actions/upload-artifact@v2
-      #with:
-        #name: default
-        #path: .
+    #uses: actions/upload-artifact@v2
+    #with:
+    #name: default
+    #path: .
