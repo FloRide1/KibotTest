@@ -30,7 +30,7 @@ jobs:
           kicad: 5
           dir: "Export"
           skip: run_drc
-          schema: "src/*.kicad_sch"
+          schema: "src/*.kicad_pcb"
 
       - name: Retrieve results
         uses: actions/upload-artifact@v2
@@ -50,7 +50,7 @@ jobs:
           kicad: 5
           dir: "Export"
           skip: run_erc
-          board: "src/*.kicad_pcb"
+          board: "src/"
 
       - name: Retrieve results
         uses: actions/upload-artifact@v1
