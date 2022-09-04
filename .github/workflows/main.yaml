@@ -28,9 +28,9 @@ jobs:
         uses: INTI-CMNB/KiBot@v2_k6
         with:
           kicad: 5
-          dir: Export
+          dir: "Export"
           skip: run_drc
-          targets: __NONE__
+          schema: "src/*.kicad_sch"
 
       - name: Retrieve results
         uses: actions/upload-artifact@v2
@@ -48,9 +48,9 @@ jobs:
         uses: INTI-CMNB/KiBot@v2_k6
         with:
           kicad: 5
-          dir: Export
+          dir: "Export"
           skip: run_erc
-          targets: __NONE__
+          board: "src/*.kicad_pcb"
 
       - name: Retrieve results
         uses: actions/upload-artifact@v1
@@ -68,10 +68,7 @@ jobs:
 
       - uses: INTI-CMNB/KiBot@v2_k6
         with:
-          config:
-            config.kibot.yaml
-            # skip: all
-            #
+          config: "config.kibot.yaml"
       - name: Commits files
         run: |
           git config --local user.name  ${{ github.actor }}
