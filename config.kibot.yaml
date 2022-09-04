@@ -96,7 +96,7 @@ outputs:
       compression: "auto"
       files:
         - source: "./Gerber/**"
-        - filter: ".*\.(?!zip).*"
+        - filter: ".*[.](?!zip).*"
       format: "ZIP"
       move_files: false
 
