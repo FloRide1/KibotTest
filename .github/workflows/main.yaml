@@ -69,6 +69,8 @@ jobs:
       - uses: INTI-CMNB/KiBot@v2_k6
         with:
           config: "config.kibot.yaml"
+          schema: "src/KibotTest.kicad_sch"
+          board: "src/KibotTest.kicad_pcb"
       - name: Commits files
         run: |
           git config --local user.name  ${{ github.actor }}
