@@ -19,7 +19,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   ERC:
-    runs-on: setsoft/kicad_auto
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -39,7 +39,7 @@ jobs:
           path: Export
 
   DRC:
-    runs-on: setsoft/kicad_auto
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -60,7 +60,7 @@ jobs:
 
   default:
     name: "Main"
-    runs-on: setsoft/kicad_auto
+    runs-on: ubuntu-latest
     needs: [ERC, DRC]
 
     steps:
