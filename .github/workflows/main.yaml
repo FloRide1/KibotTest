@@ -60,11 +60,11 @@ jobs:
 
   default:
     name: "Main"
-    runs-on: ubuntu-latest
+    runs-on: setsoft/kicad_auto
     needs: [ERC, DRC]
 
     steps:
-      - runs-on: setsoft/kicad_auto
+      - uses: actions/checkout@v2
 
       - uses: INTI-CMNB/KiBot@v2_k6
         with:
