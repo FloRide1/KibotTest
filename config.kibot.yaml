@@ -136,7 +136,7 @@ outputs:
     options:
       compression: "auto"
       files:
-        - from_output: "./Gerber/export_zip/*"
+        - from_output: "./*"
         - source: ".*[.](gbr|gbrjob|pdf)"
       format: "ZIP"
       move_files: true
