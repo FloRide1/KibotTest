@@ -91,7 +91,7 @@ outputs:
   - name: "gerber_drill_zip"
     comment: "Create Gerber drills files"
     type: "gerb_drill"
-    dir: "Gerber/export_zip"
+    dir: "."
     options:
       map:
         output: "%f-%i%I%v.%x"
@@ -102,7 +102,7 @@ outputs:
   - name: "gerber_plot_zip"
     comment: "Create Gerber plot files"
     type: "gerber"
-    dir: "Gerber/export_zip"
+    dir: "."
     options:
       create_gerber_job_file: true
       exclude_edge_layer: true
@@ -137,6 +137,7 @@ outputs:
       compression: "auto"
       files:
         - from_output: "./Gerber/export_zip/*"
+        - source: ".*[.](gbr|gbrjob|pdf)"
       format: "ZIP"
       move_files: true
 
