@@ -139,7 +139,7 @@ outputs:
         - from_output: "*"
         - filter: ".*[.](gbr|gbrjob|pdf)"
       format: "ZIP"
-      move_files: true
+      move_files: false
 
   - name: "bom"
     comment: "Generate the bom in Export"
