@@ -136,7 +136,6 @@ outputs:
     options:
       compression: "auto"
       files:
-        - from_output: "."
         - filter: ".*[.](gbr|gbrjob|pdf)"
       format: "ZIP"
       move_files: false
