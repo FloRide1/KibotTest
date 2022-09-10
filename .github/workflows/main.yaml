@@ -68,7 +68,7 @@ jobs:
 
       - uses: INTI-CMNB/KiBot@v2_k6
         with:
-          config: "config.kibot.yaml"
+          config: config.kibot.yaml
       - name: Commits files
         run: |
           git config --local user.name  ${{ github.actor }}
