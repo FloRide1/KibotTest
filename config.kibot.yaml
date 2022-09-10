@@ -199,15 +199,15 @@ outputs:
       sort_order: "C,R,L,D,U,Y,X,F,SW,A,~,HS,CNN,J,P,NT,MH"
 
   # KiCost (KiCad Cost calculator):
-  - name: "kicost"
-    comment: "Generates a spreadsheet containing components costs."
-    type: "kicost"
-    dir: "Export/cost"
-    options:
-      currency: EUR # Important: Currency
-      no_collapse: false
-      number: 1 # Important: Number of board
-      show_cat_url: false
+  # - name: "kicost"
+  #  comment: "Generates a spreadsheet containing components costs."
+  #  type: "kicost"
+  #  dir: "Export/cost"
+  #  options:
+  #    currency: EUR # Important: Currency
+  #    no_collapse: false
+  #    number: 1 # Important: Number of board
+  #    show_cat_url: false
 
   - name: "DXF"
     comment: "Exports the PCB to 2D mechanical EDA tools (like AutoCAD)."
