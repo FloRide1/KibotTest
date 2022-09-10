@@ -3,14 +3,14 @@
 on:
   push:
     paths:
-      - "*.sch"
+      - "*.kicad_sch"
       - "*.kicad_pcb"
       - "*.kibot.yaml"
       - "Makefile"
       - ".github/workflows/main.yaml"
   pull_request:
     paths:
-      - "*.sch"
+      - "*.kicad_sch"
       - "*.kicad_pcb"
       - "*.kibot.yaml"
       - "Makefile"
@@ -30,7 +30,6 @@ jobs:
           kicad: 5
           dir: "Export"
           skip: run_drc
-          board: "src/KibotTest.kicad_pcb"
 
       - name: Retrieve results
         uses: actions/upload-artifact@v2
@@ -50,7 +49,6 @@ jobs:
           kicad: 5
           dir: "Export"
           skip: run_erc
-          schema: "src/KibotTest.kicad_sch"
 
       - name: Retrieve results
         uses: actions/upload-artifact@v1
@@ -69,8 +67,6 @@ jobs:
       - uses: INTI-CMNB/KiBot@v2_k6
         with:
           config: "config.kibot.yaml"
-          schema: "src/KibotTest.kicad_sch"
-          board: "src/KibotTest.kicad_pcb"
       - name: Commits files
         run: |
           git config --local user.name  ${{ github.actor }}
