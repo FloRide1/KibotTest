@@ -30,6 +30,7 @@ jobs:
           kicad: 5
           dir: "Export"
           skip: run_drc
+          targets: __NONE__
 
       - name: Retrieve results
         uses: actions/upload-artifact@v2
@@ -49,6 +50,7 @@ jobs:
           kicad: 5
           dir: "Export"
           skip: run_erc
+          targets: __NONE__
 
       - name: Retrieve results
         uses: actions/upload-artifact@v1
